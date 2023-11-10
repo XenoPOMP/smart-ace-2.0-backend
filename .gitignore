@@ -18,7 +18,6 @@ dist-ssr
 
 # Prisma
 prisma/dev.db
-prisma/migrations/*
 !prisma/migrations/migration_lock.toml
 
 # Vitest
