@@ -9,3 +9,22 @@ datasource db {
   provider = "sqlserver"
   url      = env("DATABASE_URL")
 }
+
+model Service {
+  id           Int       @id @default(autoincrement())
+  title        String
+  description  String?
+  minPrice     Int
+  weeksToSolve String
+  hardness     Int
+  comments     Comment[]
+}
+
+model Comment {
+  id        Int      @id @default(autoincrement())
+  name      String?
+  comment   String?
+  rating    Int
+  Service   Service? @relation(fields: [serviceId], references: [id])
+  serviceId Int?
+}
