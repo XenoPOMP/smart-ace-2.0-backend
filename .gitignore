@@ -16,6 +16,11 @@ dist-ssr
 # Un-comment lines bellow when you will use this template
 .env*
 
+# Prisma
+prisma/dev.db
+prisma/migrations/*
+!prisma/migrations/migration_lock.toml
+
 # Vitest
 /coverage
 !/coverage/
