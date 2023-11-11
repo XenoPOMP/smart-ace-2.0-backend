@@ -1,5 +1,6 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, Query } from '@nestjs/common';
 import { PrismaClient } from '@prisma/client';
+import { Primitive, RecordKey } from '@xenopomp/advanced-types';
 
 import { CommentsDto } from '@/comments/comments.dto';
 import { PrismaService } from '@/prisma/prisma.service';
@@ -8,8 +9,12 @@ import { PrismaService } from '@/prisma/prisma.service';
 export class CommentsService {
 	constructor(private readonly prisma: PrismaService) {}
 
-	async getComments() {
-		return this.prisma.comment.findMany();
+	async getComments(query?: Partial<Record<'serviceId', string>>) {
+		return this.prisma.comment.findMany({
+			where: {
+				serviceId: Number(query.serviceId),
+			},
+		});
 	}
 
 	async create(body: CommentsDto) {

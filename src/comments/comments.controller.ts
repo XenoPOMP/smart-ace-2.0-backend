@@ -9,8 +9,10 @@ export class CommentsController {
 	constructor(private readonly commentsService: CommentsService) {}
 
 	@Get()
-	async getComments() {
-		return this.commentsService.getComments();
+	async getComments(@Query('serviceId') serviceId?: string) {
+		return this.commentsService.getComments({
+			serviceId,
+		});
 	}
 
 	@Patch()
