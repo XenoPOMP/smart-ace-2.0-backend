@@ -11,9 +11,10 @@ datasource db {
 }
 
 model Comment {
-  id        Int     @id @default(autoincrement())
-  name      String?
-  comment   String?
-  rating    Int
-  serviceId Int
+  id            Int     @id @default(autoincrement())
+  name          String?
+  comment       String?
+  rating        Int
+  serviceId     Int
+  userSessionId Int?
 }
