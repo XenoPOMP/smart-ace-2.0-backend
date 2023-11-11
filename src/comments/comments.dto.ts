@@ -3,4 +3,5 @@ export class CommentsDto {
 	comment?: string;
 	rating: number;
 	serviceId: number;
+	uuid: string;
 }
