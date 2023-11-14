@@ -17,5 +17,5 @@ model Comment {
   rating       Int
   serviceId    Int
   uuid         String?
-  creationDate DateTime?
+  creationDate DateTime? @default(now())
 }

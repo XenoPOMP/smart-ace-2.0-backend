@@ -1,5 +1,6 @@
 import { Body, Controller, Delete, Get, Patch, Query } from '@nestjs/common';
 
+import { SqlSort } from '@/assets/types/SqlSort';
 import { CommentsDto } from '@/comments/comments.dto';
 
 import { CommentsService } from './comments.service';
@@ -9,10 +10,20 @@ export class CommentsController {
 	constructor(private readonly commentsService: CommentsService) {}
 
 	@Get()
-	async getComments(@Query('serviceId') serviceId?: string) {
-		return this.commentsService.getComments({
-			serviceId,
-		});
+	async getComments(
+		@Query('serviceId') serviceId?: string,
+		@Query('sortByDate') sortByDate?: SqlSort
+	) {
+		return this.commentsService.getComments(
+			{
+				serviceId,
+			},
+			{
+				sort: {
+					date: sortByDate,
+				},
+			}
+		);
 	}
 
 	@Patch()
