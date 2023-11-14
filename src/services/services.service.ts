@@ -8,7 +8,7 @@ import { AverageRatingDto } from '@/services/average-rating.dto';
 export class ServicesService {
 	constructor(private readonly prisma: PrismaService) {}
 
-	async averageRating({ serviceId }: AverageRatingDto) {
+	async averageRating(serviceId: number) {
 		const average = await this.prisma.comment.findMany({
 			where: {
 				serviceId,
