@@ -11,10 +11,11 @@ datasource db {
 }
 
 model Comment {
-  id        Int     @id @default(autoincrement())
-  name      String?
-  comment   String?
-  rating    Int
-  serviceId Int
-  uuid      String?
+  id           Int       @id @default(autoincrement())
+  name         String?
+  comment      String?
+  rating       Int
+  serviceId    Int
+  uuid         String?
+  creationDate DateTime?
 }
