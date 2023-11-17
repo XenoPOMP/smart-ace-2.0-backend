@@ -1,0 +1,7 @@
+-- CreateTable
+CREATE TABLE "Contacts" (
+    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "name" TEXT,
+    "email" TEXT,
+    "date" DATETIME DEFAULT CURRENT_TIMESTAMP
+);
