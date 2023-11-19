@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Patch, Query } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Patch, Query } from '@nestjs/common';
 
 import { SqlSort } from '@/assets/types/SqlSort';
 import { CreateContactDto } from '@/contacts/create-contact.dto';
@@ -20,5 +20,10 @@ export class ContactsController {
 	@Patch()
 	async create(@Body() body: CreateContactDto) {
 		await this.contactsService.create(body);
+	}
+
+	@Delete()
+	async delete(@Body() { ids }: { ids: number[] }) {
+		await this.contactsService.delete(ids);
 	}
 }

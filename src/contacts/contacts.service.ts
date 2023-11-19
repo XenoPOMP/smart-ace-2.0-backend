@@ -36,4 +36,14 @@ export class ContactsService {
 			},
 		});
 	}
+
+	async delete(ids: number[]) {
+		await this.prisma.contact.deleteMany({
+			where: {
+				id: {
+					in: ids,
+				},
+			},
+		});
+	}
 }
